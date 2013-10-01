@@ -57,6 +57,10 @@ const char CameraParameters::KEY_ANTIBANDING[] = "antibanding";
 const char CameraParameters::KEY_SUPPORTED_ANTIBANDING[] = "antibanding-values";
 const char CameraParameters::KEY_SCENE_MODE[] = "scene-mode";
 const char CameraParameters::KEY_SUPPORTED_SCENE_MODES[] = "scene-mode-values";
+#ifdef QCOM_HARDWARE
+const char CameraParameters::KEY_SCENE_DETECT[] = "scene-detect";
+const char CameraParameters::KEY_SUPPORTED_SCENE_DETECT[] = "scene-detect-values";
+#endif
 const char CameraParameters::KEY_FLASH_MODE[] = "flash-mode";
 const char CameraParameters::KEY_SUPPORTED_FLASH_MODES[] = "flash-mode-values";
 const char CameraParameters::KEY_FOCUS_MODE[] = "focus-mode";
@@ -172,6 +176,161 @@ const char CameraParameters::FOCUS_MODE_CONTINUOUS_VIDEO[] = "continuous-video";
 const char CameraParameters::FOCUS_MODE_CONTINUOUS_PICTURE[] = "continuous-picture";
 const char CameraParameters::FOCUS_MODE_MANUAL_POSITION[] = "manual";
 
+#if defined(QCOM_HARDWARE)
+#ifdef QCOM_LEGACY_CAM_PARAMS
+const char CameraParameters::FOCUS_MODE_CONTINUOUS_CAMERA[] = "continuous-camera";
+#endif
+const char CameraParameters::FOCUS_MODE_NORMAL[] = "normal";
+
+
+const char CameraParameters::KEY_SKIN_TONE_ENHANCEMENT[] = "skinToneEnhancement";
+const char CameraParameters::KEY_SUPPORTED_SKIN_TONE_ENHANCEMENT_MODES[] = "skinToneEnhancement-values";
+
+// Values for ISO Settings
+const char CameraParameters::ISO_AUTO[] = "auto";
+const char CameraParameters::ISO_HJR[] = "ISO_HJR";
+const char CameraParameters::ISO_100[] = "ISO100";
+const char CameraParameters::ISO_200[] = "ISO200";
+const char CameraParameters::ISO_400[] = "ISO400";
+const char CameraParameters::ISO_800[] = "ISO800";
+const char CameraParameters::ISO_1600[] = "ISO1600";
+const char CameraParameters::ISO_3200[] = "ISO3200";
+const char CameraParameters::ISO_6400[] = "ISO6400";
+
+ //Values for Lens Shading
+const char CameraParameters::LENSSHADE_ENABLE[] = "enable";
+const char CameraParameters::LENSSHADE_DISABLE[] = "disable";
+
+// Values for auto exposure settings.
+const char CameraParameters::AUTO_EXPOSURE_FRAME_AVG[] = "frame-average";
+const char CameraParameters::AUTO_EXPOSURE_CENTER_WEIGHTED[] = "center-weighted";
+const char CameraParameters::AUTO_EXPOSURE_SPOT_METERING[] = "spot-metering";
+
+const char CameraParameters::KEY_GPS_LATITUDE_REF[] = "gps-latitude-ref";
+const char CameraParameters::KEY_GPS_LONGITUDE_REF[] = "gps-longitude-ref";
+const char CameraParameters::KEY_GPS_ALTITUDE_REF[] = "gps-altitude-ref";
+const char CameraParameters::KEY_GPS_STATUS[] = "gps-status";
+const char CameraParameters::KEY_EXIF_DATETIME[] = "exif-datetime";
+
+const char CameraParameters::KEY_HISTOGRAM[] = "histogram";
+const char CameraParameters::KEY_SUPPORTED_HISTOGRAM_MODES[] = "histogram-values";
+//Values for Histogram Shading
+const char CameraParameters::HISTOGRAM_ENABLE[] = "enable";
+const char CameraParameters::HISTOGRAM_DISABLE[] = "disable";
+
+//Values for Skin Tone Enhancement Modes
+const char CameraParameters::SKIN_TONE_ENHANCEMENT_ENABLE[] = "enable";
+const char CameraParameters::SKIN_TONE_ENHANCEMENT_DISABLE[] = "disable";
+
+const char CameraParameters::KEY_SHARPNESS[] = "sharpness";
+#if defined(SAMSUNG_CAMERA_QCOM) || defined(QCOM_LEGACY_CAM_PARAMS)
+const char CameraParameters::KEY_MIN_SHARPNESS[] = "sharpness-min";
+const char CameraParameters::KEY_MIN_CONTRAST[] = "contrast-min";
+const char CameraParameters::KEY_MIN_SATURATION[] = "saturation-min";
+#endif
+#if defined(SAMSUNG_CAMERA_QCOM) || defined(QCOM_LEGACY_CAM_PARAMS)
+const char CameraParameters::KEY_MAX_SHARPNESS[] = "sharpness-max";
+const char CameraParameters::KEY_MAX_CONTRAST[] = "contrast-max";
+const char CameraParameters::KEY_MAX_SATURATION[] = "saturation-max";
+#else
+const char CameraParameters::KEY_MAX_SHARPNESS[] = "max-sharpness";
+const char CameraParameters::KEY_MAX_CONTRAST[] = "max-contrast";
+const char CameraParameters::KEY_MAX_SATURATION[] = "max-saturation";
+#endif
+const char CameraParameters::KEY_CONTRAST[] = "contrast";
+const char CameraParameters::KEY_SATURATION[] = "saturation";
+
+
+//Values for DENOISE
+const char CameraParameters::DENOISE_OFF[] = "denoise-off";
+const char CameraParameters::DENOISE_ON[] = "denoise-on";
+// Values for selectable zone af Settings
+const char CameraParameters::SELECTABLE_ZONE_AF_AUTO[] = "auto";
+const char CameraParameters::SELECTABLE_ZONE_AF_SPOT_METERING[] = "spot-metering";
+const char CameraParameters::SELECTABLE_ZONE_AF_CENTER_WEIGHTED[] = "center-weighted";
+const char CameraParameters::SELECTABLE_ZONE_AF_FRAME_AVERAGE[] = "frame-average";
+
+// Values for Face Detection settings.
+const char CameraParameters::FACE_DETECTION_OFF[] = "off";
+const char CameraParameters::FACE_DETECTION_ON[] = "on";
+
+const char CameraParameters::FILE_FORMAT_MPO[] = "mpo";
+const char CameraParameters::FILE_FORMAT_JPS[] = "jps";
+
+// Values for MCE settings.
+const char CameraParameters::MCE_ENABLE[] = "enable";
+const char CameraParameters::MCE_DISABLE[] = "disable";
+
+// Values for HFR settings.
+const char CameraParameters::VIDEO_HFR_OFF[] = "off";
+const char CameraParameters::VIDEO_HFR_2X[] = "60";
+const char CameraParameters::VIDEO_HFR_3X[] = "90";
+const char CameraParameters::VIDEO_HFR_4X[] = "120";
+
+// Values for Redeye Reduction settings.
+const char CameraParameters::REDEYE_REDUCTION_ENABLE[] = "enable";
+const char CameraParameters::REDEYE_REDUCTION_DISABLE[] = "disable";
+// Values for HDR settings.
+const char CameraParameters::HDR_ENABLE[] = "enable";
+const char CameraParameters::HDR_DISABLE[] = "disable";
+
+// Values for ZSL settings.
+const char CameraParameters::ZSL_OFF[] = "off";
+const char CameraParameters::ZSL_ON[] = "on";
+
+// Values for HDR Bracketing settings.
+const char CameraParameters::AE_BRACKET_HDR_OFF[] = "Off";
+const char CameraParameters::AE_BRACKET_HDR[] = "HDR";
+const char CameraParameters::AE_BRACKET[] = "AE-Bracket";
+
+const char CameraParameters::LOW_POWER[] = "Low_Power";
+const char CameraParameters::NORMAL_POWER[] = "Normal_Power";
+
+#ifdef(QCOM_HARDWARE)
+#if defined(SAMSUNG_CAMERA_QCOM) || defined(SAMSUNG_CAMERA_LEGACY)
+const char CameraParameters::FOCUS_MODE_FACEDETECT[] = "facedetect";
+const char CameraParameters::FOCUS_MODE_TOUCHAF[] = "touchaf";
+const char CameraParameters::ISO_50[] = "ISO50";
+const char CameraParameters::KEY_ANTI_SHAKE_MODE[] = "antishake";
+const char CameraParameters::KEY_AUTO_CONTRAST[] = "auto-contrast";
+const char CameraParameters::KEY_BEAUTY_MODE[] = "beauty";
+const char CameraParameters::KEY_BLUR_MODE[] = "blur";
+const char CameraParameters::KEY_VINTAGE_MODE[] = "vintagemode";
+const char CameraParameters::KEY_WDR_MODE[] = "wdr";
+const char CameraParameters::VINTAGE_MODE_BNW[] = "bnw";
+const char CameraParameters::VINTAGE_MODE_COOL[] = "cool";
+const char CameraParameters::VINTAGE_MODE_NORMAL[] = "normal";
+const char CameraParameters::VINTAGE_MODE_OFF[] = "off";
+const char CameraParameters::VINTAGE_MODE_WARM[] = "warm";
+const char CameraParameters::SCENE_MODE_DAWN[] = "dusk-dawn";
+const char CameraParameters::SCENE_MODE_DUSKDAWN[] = "dusk-dawn";
+const char CameraParameters::SCENE_MODE_FALL[] = "fall-color";
+const char CameraParameters::SCENE_MODE_FALL_COLOR[] = "fall-color";
+const char CameraParameters::SCENE_MODE_TEXT[] = "text";
+#endif
+#endif
+
+static const char* portrait = "portrait";
+static const char* landscape = "landscape";
+
+int CameraParameters::getOrientation() const
+{
+    const char* orientation = get("orientation");
+    if (orientation && !strcmp(orientation, portrait))
+        return CAMERA_ORIENTATION_PORTRAIT;
+    return CAMERA_ORIENTATION_LANDSCAPE;
+}
+void CameraParameters::setOrientation(int orientation)
+{
+    if (orientation == CAMERA_ORIENTATION_PORTRAIT) {
+        set("orientation", portrait);
+    } else {
+         set("orientation", landscape);
+    }
+}
+#endif
+
+
 // Values for light fx settings
 const char CameraParameters::LIGHTFX_LOWLIGHT[] = "low-light";
 const char CameraParameters::LIGHTFX_HDR[] = "high-dynamic-range";
@@ -253,7 +412,7 @@ void CameraParameters::set(const char *key, const char *value)
         return;
     }
 
-    if (strchr(value, '=') || strchr(value, ';')) {
+    if (strchr(value, '=') || strchr(key, ';')) {
         //XXX ALOGE("Value \"%s\"contains invalid character (= or ;)", value);
         return;
     }
@@ -272,7 +431,7 @@ void CameraParameters::set(const char *key, const char *value)
 void CameraParameters::set(const char *key, int value)
 {
     char str[16];
-    sprintf(str, "%d", value);
+    snprintf(str, sizeof(str), "%d", value);
     set(key, str);
 }
 
@@ -298,6 +457,13 @@ int CameraParameters::getInt(const char *key) const
         return -1;
     return strtol(v, 0, 0);
 }
+
+#ifdef SAMSUNG_CAMERA_HARDWARE
+int CameraParameters::getInt64(const char *key) const
+{
+    return -1;
+}
+#endif
 
 float CameraParameters::getFloat(const char *key) const
 {
