@@ -286,7 +286,7 @@ const char CameraParameters::AE_BRACKET[] = "AE-Bracket";
 const char CameraParameters::LOW_POWER[] = "Low_Power";
 const char CameraParameters::NORMAL_POWER[] = "Normal_Power";
 
-#ifdef(QCOM_HARDWARE)
+#ifdef QCOM_HARDWARE
 #if defined(SAMSUNG_CAMERA_QCOM) || defined(SAMSUNG_CAMERA_LEGACY)
 const char CameraParameters::FOCUS_MODE_FACEDETECT[] = "facedetect";
 const char CameraParameters::FOCUS_MODE_TOUCHAF[] = "touchaf";

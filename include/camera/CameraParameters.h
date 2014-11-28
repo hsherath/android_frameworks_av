@@ -277,6 +277,33 @@ public:
     // Supported scene mode settings.
     // Example value: "auto,night,fireworks". Read only.
     static const char KEY_SUPPORTED_SCENE_MODES[];
+#ifdef QCOM_HARDWARE
+    // Current auto scene detection mode.
+    // Example value: "off" or SCENE_DETECT_XXX constants. Read/write.
+    static const char KEY_SCENE_DETECT[];
+   // Supported auto scene detection settings.
+   // Example value: "off,backlight,snow/cloudy". Read only.
+    static const char KEY_SUPPORTED_SCENE_DETECT[];
+#endif
+
+#ifdef QCOM_HARDWARE
+static const char KEY_SKIN_TONE_ENHANCEMENT[] ;
+static const char KEY_SUPPORTED_SKIN_TONE_ENHANCEMENT_MODES[] ;
+#endif
+
+#ifdef QCOM_HARDWARE
+static const char KEY_ISO_MODE[];
+static const char KEY_SUPPORTED_ISO_MODES[];
+static const char KEY_LENSSHADE[] ;
+static const char KEY_SUPPORTED_LENSSHADE_MODES[] ;
+static const char KEY_AUTO_EXPOSURE[];
+static const char KEY_SUPPORTED_AUTO_EXPOSURE[];
+static const char KEY_GPS_LATITUDE_REF[];
+static const char KEY_GPS_LONGITUDE_REF[];
+static const char KEY_GPS_ALTITUDE_REF[];
+static const char KEY_GPS_STATUS[];
+static const char KEY_EXIF_DATETIME[];
+#endif
     // Current flash mode.
     // Example value: "auto" or FLASH_MODE_XXX constants. Read/write.
     static const char KEY_FLASH_MODE[];
@@ -841,7 +868,7 @@ CAMERA_PARAMETERS_EXTRA_H
     static const char HDR_ENABLE[];
     static const char HDR_DISABLE[];
 
-#ifdef(QCOM_HARDWARE)
+#ifdef QCOM_HARDWARE
 #if defined(SAMSUNG_CAMERA_QCOM) || defined(SAMSUNG_CAMERA_LEGACY)
     static const char FOCUS_MODE_FACEDETECT[];
     static const char FOCUS_MODE_TOUCHAF[];
@@ -885,7 +912,7 @@ CAMERA_PARAMETERS_EXTRA_H
 #endif
     void getSupportedHfrSizes(Vector<Size> &sizes) const;
 #endif
-
+    /*
      * Returns the the supported preview formats as an enum given in graphics.h
      * corrsponding to the format given in the input string or -1 if no such
      * conversion exists.
